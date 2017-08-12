@@ -16,6 +16,7 @@ $(function(){
     });
 
     var area = document.getElementById('drop_area');
+    var result = document.getElementById('result');
     var preview = document.getElementById('preview');
     var base64 = '';
     area.addEventListener('drop', function(e){
@@ -34,7 +35,8 @@ $(function(){
         var reader = new FileReader();
         reader.onload = function(){
             base64 = this.result;
-            preview.innerText = base64;
+            preview.src = base64;
+            result.innerText = base64;
         }
         reader.readAsDataURL(fileList[0]);
     });
